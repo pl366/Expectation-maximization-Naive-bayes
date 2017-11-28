@@ -197,9 +197,10 @@ def main():
     		num_classified +=1
     		if classification == line[1]:
     			num_correct+=1
+			#ESTEP
     		unlabelled_posteriors.append((get_class_posteriors(line,priors,likelihood),line))
 
     	print ("Classified %d correctly out of %d for an accuracy of %f"%(num_correct,len(testing_lines),float(num_correct)/len(testing_lines)))        
-
+		#M-STEP
     	(priors,likelihood) = relearn_priors_likelihood(labelled_posteriors + unlabelled_posteriors)
 
